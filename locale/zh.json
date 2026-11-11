@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "紫微斗数工作台",
+    "description": "管理人员档案，调用 iztro 排盘，查看星盘 JSON 与运限查询历史。"
+  },
+  "panel": "紫微斗数"
+}

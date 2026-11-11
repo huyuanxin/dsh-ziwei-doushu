@@ -1,0 +1,11 @@
+# 紫微斗数工作台：一行承载 Host 半边（服务 + Agent 工具）与 Client 半边（页面）。
+# 浏览器模块表只挂「说明符恰为裸包名」的那一行，subpath row 会丢浏览器半边。
+- insert:
+    - id: dsh-ziweidoushu
+      name: dsh-ziweidoushu
+      config:
+        # 数据目录留空表示按 profile → DSH_HOME → cwd 顺序自动选址。
+        dataDir: ''
+        # 排盘默认语言与闰月处理。single-chart 可在 createChart 的 input 里覆盖。
+        language: zh-CN
+        fixLeap: true

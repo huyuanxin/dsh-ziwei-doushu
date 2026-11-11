@@ -1,0 +1,46 @@
+{
+  "name": "dsh-ziweidoushu",
+  "version": "0.0.2",
+  "private": false,
+  "type": "module",
+  "description": "紫微斗数工作台：管理人员档案，调用 iztro 排盘，查看星盘 JSON 与运限查询历史。",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huyuanxin/dsh-ziwei-doushu.git"
+  },
+  "scripts": {
+    "test": "node test/run.mjs && node test/contract.mjs && node test/client-smoke.mjs && node test/scope-layers.mjs && node test/skills.mjs",
+    "test:host": "node test/run.mjs",
+    "test:contract": "node test/contract.mjs",
+    "test:client": "node test/client-smoke.mjs",
+    "test:scopes": "node test/scope-layers.mjs",
+    "test:skills": "node test/skills.mjs"
+  },
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "lib/*.js",
+    "data/*.json",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "skills/**/*.md",
+    "icon.svg",
+    "README.md"
+  ],
+  "dependencies": {
+    "iztro": "^2.6.5"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  }
+}
