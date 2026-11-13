@@ -2,6 +2,42 @@
 
 DeepSeek Harness 插件：管理人员档案，调用 [iztro](https://www.npmjs.com/package/iztro) 排盘，查看星盘 JSON 与运限查询历史。
 
+## 安装
+
+本插件已发布到 npm，包名 [`dsh-ziweidoushu`](https://www.npmjs.com/package/dsh-ziweidoushu)。用 DSH 的插件命令一步安装：
+
+```bash
+dsh plugin --profile web add dsh-ziweidoushu
+```
+
+该命令把 `pnpm add` 转发到 `web` 这个 profile 的目录（`~/.dsh/profiles/web`）安装 npm 包；DSH 启动时会按插件清单（`package.json` 里的 `dsh` 字段）自动加载并注册，无需手工改配置。如果你用的是自定义 profile，把 `web` 换成对应名字即可。
+
+> 前提：先启动一次 DSH（如 `npx @deepseek-ai/dsh web`），确保目标 profile 已初始化。安装后重启 DSH，左侧栏会出现「紫微斗数」入口；可用 `dsh --dump-config` 确认插件已进入合并后的配置。
+
+其它安装方式：
+
+| 方式 | 命令 | 适用 |
+| --- | --- | --- |
+| npm（推荐） | `dsh plugin --profile web add dsh-ziweidoushu` | 正式使用，或从 [dsh-plugin.org](https://dsh-plugin.org) 一步安装 |
+| 指定版本 | `dsh plugin --profile web add dsh-ziweidoushu@0.0.2` | 锁定到某个已发布版本 |
+| 源码 / GitHub | `dsh plugin --profile web add github:huyuanxin/dsh-ziwei-doushu` | 想跑未发布的最新代码 |
+| 本地开发 | 见下文「开发」的 `link:` 方式 | 改代码时热重载调试 |
+
+升级与卸载（具体参数以 `dsh plugin --help` 为准；卸载只移插件依赖、不动 `~/.dsh/sessions` 会话数据，且只影响指定的 profile）：
+
+```bash
+dsh plugin --profile web update dsh-ziweidoushu
+dsh plugin --profile web remove dsh-ziweidoushu
+```
+
+### 兼容性
+
+- **平台**：`web`（`dsh.client.platform = web`），是同时提供 Host 服务 / Agent 工具与浏览器侧栏面板的 combo bundle。
+- **运行形态**：ESM（`"type": "module"`），导出 `apply(ctx)`，依赖 [iztro](https://www.npmjs.com/package/iztro) `^2.6.5` 在本地排盘。
+- **DSH 版本**：DeepSeek Harness 处于 developer preview，接口可能随版本变化；若加载失败，先核对 profile 与 DSH 版本，并用 `dsh --dump-config` 检查合并配置。
+- **数据与权限**：人员档案、星盘、运限记录只落地在 `<profile>/ziwei-doushu/`（可用 `DSH_ZIWEI_DOUSHU_DIR` 覆盖），不访问外部服务、不申请额外权限。
+- **许可证**：MIT，见 [LICENSE](LICENSE)。
+
 ## 功能
 
 | 功能 | 说明 |
