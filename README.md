@@ -1,5 +1,7 @@
 # dsh-ziweidoushu · 紫微斗数工作台
 
+[![Listed on dsh-plugin.org](https://dsh-plugin.org/badges/listed.svg)](https://dsh-plugin.org/plugins/huyuanxin/dsh-ziwei-doushu)
+
 DeepSeek Harness 插件：管理人员档案，调用 [iztro](https://www.npmjs.com/package/iztro) 排盘，查看星盘 JSON 与运限查询历史。
 
 ## 安装
