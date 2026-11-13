@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "private": false,
   "type": "module",
+  "license": "MIT",
   "description": "紫微斗数工作台：管理人员档案，调用 iztro 排盘，查看星盘 JSON 与运限查询历史。",
   "repository": {
     "type": "git",
@@ -30,7 +31,8 @@
     "locale/*.json",
     "skills/**/*.md",
     "icon.svg",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "dependencies": {
     "iztro": "^2.6.5"
